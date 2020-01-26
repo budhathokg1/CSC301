@@ -1,5 +1,7 @@
 <?php 
-  
+
+$id = $_GET['id'];
+
 $hotels = array(
   "Kimpton George Hotel" => array(
     "address" => "15 E Street Northwest, Northwest, Washington, D.C., DC 20001, United States of America",
@@ -39,12 +41,13 @@ $hotels = array(
   
 ); 
 
+
 ?> 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Booking.com</title>
+  <title>HotelHub</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -62,7 +65,7 @@ $hotels = array(
     }
 
     .container-fluid {
-      background-color: #3b78e7 !important;
+      background-color: #ff7b00 !important;
     }
 
     .cs-body-overlap {
@@ -95,33 +98,19 @@ $hotels = array(
 <body>
 
 <div class="container-fluid text-center">
-  <h1>Booking.com</h1>
+  <h1><?php echo $id; ?></h1>
 </div>
   
 <div class="container cs-body-overlap">
-  <div class="row overlap">
-      <div class="col-md-12">
-        <?php
-          foreach($hotels as $name=>$value) {
-        ?>
-            <div class="row hotel-card">
-              <div class="col-md-4 background-card" style="background-image:url(<?php echo $value["img_url"]; ?>)"></div>
-              <div class="col-md-8">
-                <div class="row">
-                  <div class="col-md-12">
-                    <h3><?php echo $name; ?></h3>
-                    <h5> <?php echo $value["address"] ?></h5>
-                    <h5><?php echo $value["price_per_night"] ?></h5>
-                    <a class="btn btn-md bg-info" href="details.php?id=<?php echo $name; ?>">Details</a>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-              <br />
-            <?php
-          }
-        ?>
+  <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8 overlap">
+          <div class="row background-card" style="background-image:url(<?php echo $hotels[$id]["img_url"] ?>)"></div>
+            <h5><b>Address:</b> <?php echo $hotels[$id]["address"]; ?> </h5>
+            <h5><b>Price per night:</b> <?php echo $hotels[$id]["price_per_night"]; ?> </h5>
+        </div>
+      <div class="col-md-2">
 
       </div>
   </div>
