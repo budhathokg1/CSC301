@@ -1,8 +1,7 @@
 <?php 
 	include('functions.php');
-	require_once('data.php');
 	
-	$hotel_array = jsonToArray($file_contents);
+	$hotel_array = jsonToArray('data.json');
 	$hotels = $hotel_array[0]['hotels'];
 
 ?> 
@@ -61,7 +60,7 @@
 <body>
 
 <div class="container-fluid text-center">
-  <h1>Booking.com</h1>
+  <h1>HotelHub</h1>
 </div>
   
 <div class="container cs-body-overlap">
