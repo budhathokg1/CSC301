@@ -1,2 +1,5 @@
 <?php
-print_r("hello world");
+$str='a\\b\n';
+echo $str;
+
+
