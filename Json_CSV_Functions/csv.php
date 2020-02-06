@@ -6,11 +6,13 @@ writeCSV('beatles.csv',$csv);
 $csv='Paul;McCartney';
 writeCSV('beatles.csv',$csv);
 */
+
+$data = 'hello;world';
 echo '<pre>';
-modifyCSV('beatles.csv', 'hello', 0);
+modifyCSV('beatles.csv', $data, 0);
 //print_r(readCSV('beatles.csv'));
 
-function writeCSV($file, $data, $isChanged){
+function writeCSV($file, $data, $isChanged = false){
 	$h=fopen($file,!file_exists($file) || $isChanged == true ? 'w+' : 'a');
 	fwrite($h,$data. "\n" /* PHP_EOL */);
 	fclose($h);
@@ -28,10 +30,9 @@ function readCSV($file, $index=null){
 }
 
 function modifyCSV($file, $data, $index){
+	$dataArray = explode(";", $data);
 	$input=readCSV($file);
-	array_push($input[$index], $data);
-	print_r($input);
-	die();
+	$input[$index] = $dataArray;
 	for($i=0;$i<count($input); $i++) $input[$i]=implode(";",$input[$i]);
 	$input=implode("\n", $input);
 	writeCSV($file,$input, true);
