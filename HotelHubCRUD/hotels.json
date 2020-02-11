@@ -1,9 +1,1 @@
-[
-    {
-        "hotel_name": "Kimpton George Hotel",
-        "address": "15 E Street Northwest, Northwest, Washington, D.C., DC 20001, United States of America",
-		"img_url": "https://r-cf.bstatic.com/images/hotel/max1024x768/230/230389960.jpg",
-		"price_per_night": 1367.26
-    }
-
-]
+[{"hotel_name":"Kimpton George Hotel","address":"15 E Street Northwest, Northwest, Washington, D.C., DC 20001, United States of America","img_url":"https:\/\/r-cf.bstatic.com\/images\/hotel\/max1024x768\/230\/230389960.jpg","price_per_night":1367.26},{"hotel_name":"test hotel","address":"1121 Grey Stable Lane","img_url":"","price_per_night":"454"},{"hotel_name":"asdfasdfdfgfdg","address":"fdgfdg","img_url":"","price_per_night":"554"}]

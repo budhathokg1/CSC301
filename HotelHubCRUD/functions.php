@@ -21,9 +21,13 @@ function readJSON($file, $index = null) {
 	return !isset($index) ? $output : (isset($output[$index]) ? $output[$index] : null);
 }
 
-function modifyJSON($file, $data, $index) {
+function modifyJSON($file, $data, $index = null) {
 	$input = readJSON($file);
-	$input[$index] = array_merge($input[$index], $data);
+	if(isset($index)){
+		$input[$index] = array_merge($input[$index], $data);
+	} else {
+		$input[] = $data;
+	}
 	writeJSON($file, $input);
 }
 
@@ -33,20 +37,20 @@ function deleteJSON ($file, $index) {
 	writeJSON($file);
 }
 
-function writeCSV($file, $data) {
-	$h = fopen($file, file_exists($file) ? 'a' : 'w+');
-	fwrite($h, $data.  "\n");
-	fclose($h);
+// function writeCSV($file, $data) {
+// 	$h = fopen($file, file_exists($file) ? 'a' : 'w+');
+// 	fwrite($h, $data.  "\n");
+// 	fclose($h);
 	
-}
+// }
 
-function readCSV ($file) {
-	$h = fopen($file, 'r');
-	$output = '';
-	while(!feof($h)) $output.=fgets($h);
-	fclose($h);
-	$output = explode("\n", $output);
-	unset($output[count($output) -1]);
-	for($i = 0; $i < count($output); $i++) $output[$i] = explode(';', $output[i]);
-	return output;
-}
+// function readCSV ($file) {
+// 	$h = fopen($file, 'r');
+// 	$output = '';
+// 	while(!feof($h)) $output.=fgets($h);
+// 	fclose($h);
+// 	$output = explode("\n", $output);
+// 	unset($output[count($output) -1]);
+// 	for($i = 0; $i < count($output); $i++) $output[$i] = explode(';', $output[i]);
+// 	return output;
+// }
