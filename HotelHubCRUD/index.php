@@ -36,8 +36,8 @@
                 <div class="row">
                   <div class="col-md-12">
                     <h3><?= $value["hotel_name"]; ?></h3>
-                    <h5> <?= $value["address"] ?></h5>
-                    <h5><?= $value["price_per_night"] ?></h5>
+                    <h5>Address: <?= $value["address"] ?></h5>
+                    <h5>Price Per Night: $<?= $value["price_per_night"] ?></h5>
                     <a class="btn btn-md bg-info" href="details.php?id=<?= $name; ?>">Details</a>
 
                   </div>

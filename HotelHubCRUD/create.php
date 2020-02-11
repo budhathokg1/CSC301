@@ -2,7 +2,9 @@
     include("functions.php");
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        writeJSON("hotels.json", $_POST);
+        modifyJSON("hotels.json", $_POST);
+        header("Location: index.php"); 
+        exit();
     }
 
     include('header.php');
