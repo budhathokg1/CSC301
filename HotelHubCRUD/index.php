@@ -15,6 +15,13 @@
 <div class="container cs-body-overlap">
   <div class="row overlap">
       <div class="col-md-12">
+	  <br>
+	  <div class="row">
+		<div class="col text-center">
+	  <a class="btn btn-md bg-info" href="create.php">Add a New Hotel</a>
+	  </div>
+	  </div>
+	  <br>
         <?php
           foreach($hotels as $name=>$value) {
         ?>
