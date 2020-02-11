@@ -1,16 +1,15 @@
 <?php 
-	include('functions.php');
+	include_once("functions.php");
 
-	$id = $_GET['id'];
-	$hotel_array = jsonToArray('data.json');
-	$hotels = $hotel_array[0]['hotels'];
+	$id = $_GET["id"];
+	$hotel = readJSON("hotel.json", $id);
 
-include('header.php');
+  include_once("header.php");
 ?> 
 <body>
 
 <div class="container-fluid text-center">
-  <h1><?php echo $id; ?></h1>
+  <h1><?= $hotel["hotel_name"] ?></h1>
 </div>
   
 <div class="container cs-body-overlap">
@@ -18,9 +17,9 @@ include('header.php');
       <div class="col-md-2">
       </div>
       <div class="col-md-8 overlap">
-          <div class="row background-card" style="background-image:url(<?php echo $hotels[$id]["img_url"] ?>)"></div>
-            <h5><b>Address:</b> <?php echo $hotels[$id]["address"]; ?> </h5>
-            <h5><b>Price per night:</b> <?php echo $hotels[$id]["price_per_night"]; ?> </h5>
+          <div class="row background-card" style="background-image:url(<?= $hotels["img_url"] ?>)"></div>
+            <h5><b>Address:</b> <?= $hotel["address"]; ?> </h5>
+            <h5><b>Price per night: $</b> <?= $hotel["price_per_night"]; ?> </h5>
         </div>
       <div class="col-md-2">
 
