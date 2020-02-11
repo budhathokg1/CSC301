@@ -1,0 +1,38 @@
+
+    body {
+        background: #f1f1f1;
+      }
+      .container-fluid h1{
+        padding: 7%;
+        color: #f7f7f7;
+  
+      }
+  
+      .container-fluid {
+        background-color: #ff7b00 !important;
+      }
+  
+      .cs-body-overlap {
+      margin-top: -3% !important;
+      }
+  
+      .overlap {
+        background-color: #f7f7f7;
+        border-radius: 5px;
+  
+      }
+  
+      .hotel-card {
+        min-height: 232px;
+        border-radius: 2px;
+        border: 1px solid #e6e6e6;
+  
+      }
+  
+      .background-card{
+        min-height: 232px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+  
+      }

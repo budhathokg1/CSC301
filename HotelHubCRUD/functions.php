@@ -15,7 +15,7 @@ function writeJSON($file, $data) {
 function readJSON($file, $index = null) {
 	$h = fopen($file, 'r');
 	$output = '';
-	while(!feof($h) $output.=fgets($h);
+	while(!feof($h)) $output.=fgets($h);
 	fclose($h);
 	$output = json_decode($output, true);
 	return !isset($index) ? $output : (isset($output[$index]) ? $output[$index] : null);
@@ -29,7 +29,7 @@ function modifyJSON($file, $data, $index) {
 
 function deleteJSON ($file, $index) {
 	$input = readJSON($file);
-	unset($input[$index];
+	unset($input[$index]);
 	writeJSON($file);
 }
 
