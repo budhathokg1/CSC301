@@ -17,7 +17,7 @@
       <div class="col-md-2">
       </div>
       <div class="col-md-8 overlap">
-          <div class="row background-card" style="background-image:url(<?= $hotels["img_url"] ?>)"></div>
+          <div class="row background-card" style="background-image:url(<?= $hotel["img_url"] ?>)"></div>
             <h5><b>Address:</b> <?= $hotel["address"]; ?> </h5>
             <h5><b>Price per night: $</b> <?= $hotel["price_per_night"]; ?> </h5>
         </div>

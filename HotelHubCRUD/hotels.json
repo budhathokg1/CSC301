@@ -4,12 +4,6 @@
         "address": "15 E Street Northwest, Northwest, Washington, D.C., DC 20001, United States of America",
 		"img_url": "https://r-cf.bstatic.com/images/hotel/max1024x768/230/230389960.jpg",
 		"price_per_night": 1367.26
-    },
-    {
-        "hotel_name": "Washington Court Hotel",
-        "address": "525 New Jersey Avenue Northwest, Northwest, Washington, D.C., DC 20001, United States of America",
-		"img_url": "https://q-cf.bstatic.com/images/hotel/max1024x768/972/97220601.jpg",
-		"price_per_night": 1746.06
     }
 
 ]

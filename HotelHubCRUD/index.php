@@ -1,8 +1,13 @@
 <?php 
 	include_once('functions.php');
 	
-	$hotel_array = jsonToArray('data.json');
-	$hotels = $hotel_array[0]['hotels'];
+  $hotels = readJSON("hotels.json");
+  // foreach($hotels as $name=>$value) {
+  //   print_r($name);
+  //   echo "<hr>";
+  //   print_r($value);
+  // }
+  // die();
 
   include('header.php');
 ?> 
@@ -30,10 +35,10 @@
               <div class="col-md-8">
                 <div class="row">
                   <div class="col-md-12">
-                    <h3><?php echo $name; ?></h3>
-                    <h5> <?php echo $value["address"] ?></h5>
-                    <h5><?php echo $value["price_per_night"] ?></h5>
-                    <a class="btn btn-md bg-info" href="details.php?id=<?php echo $name; ?>">Details</a>
+                    <h3><?= $value["hotel_name"]; ?></h3>
+                    <h5> <?= $value["address"] ?></h5>
+                    <h5><?= $value["price_per_night"] ?></h5>
+                    <a class="btn btn-md bg-info" href="details.php?id=<?= $name; ?>">Details</a>
 
                   </div>
                 </div>
