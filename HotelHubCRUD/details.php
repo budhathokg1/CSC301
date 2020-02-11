@@ -2,7 +2,7 @@
 	include_once("functions.php");
 
 	$id = $_GET["id"];
-	$hotel = readJSON("hotel.json", $id);
+	$hotel = readJSON("hotels.json", $id);
 
   include_once("header.php");
 ?> 
