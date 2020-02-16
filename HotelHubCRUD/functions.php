@@ -23,7 +23,7 @@ function readJSON($file, $index = null) {
 
 function modifyJSON($file, $data, $index = null) {
 	$input = readJSON($file);
-	if(isset($index)){
+	if($index != null){
 		$input[$index] = array_merge($input[$index], $data);
 	} else {
 		$input[] = $data;
@@ -34,7 +34,7 @@ function modifyJSON($file, $data, $index = null) {
 function deleteJSON ($file, $index) {
 	$input = readJSON($file);
 	unset($input[$index]);
-	writeJSON($file);
+	writeJSON($file, $input);
 }
 
 // function writeCSV($file, $data) {
