@@ -1,12 +1,12 @@
 <?php 
     include("functions.php");
-
+   
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         modifyJSON("hotels.json", $_POST);
         header("Location: index.php"); 
         exit();
     }
-
+   
     include('header.php');
 ?>
 

@@ -23,7 +23,7 @@
 	  <br>
 	  <div class="row">
 		<div class="col text-center">
-	  <a class="btn btn-md bg-info" href="create.php">Add a New Hotel</a>
+	  <a class="btn btn-md btn-info" href="create.php">Add a New Hotel</a>
 	  </div>
 	  </div>
 	  <br>
@@ -38,7 +38,7 @@
                     <h3><?= $value["hotel_name"]; ?></h3>
                     <h5>Address: <?= $value["address"] ?></h5>
                     <h5>Price Per Night: $<?= $value["price_per_night"] ?></h5>
-                    <a class="btn btn-md bg-info" href="details.php?id=<?= $name; ?>">Details</a>
+                    <a class="btn btn-md btn-primary" href="details.php?id=<?= $name; ?>">Details</a>
 
                   </div>
                 </div>
