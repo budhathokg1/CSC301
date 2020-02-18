@@ -1,15 +1,9 @@
 <?php 
-	include_once('functions.php');
+	include_once("functions/functions.php");
 	
-  $hotels = readJSON("hotels.json");
-  // foreach($hotels as $name=>$value) {
-  //   print_r($name);
-  //   echo "<hr>";
-  //   print_r($value);
-  // }
-  // die();
+  $hotels = readJSON("assets/data/hotels.json");
 
-  include('header.php');
+  include_once("header/header.php");
 ?> 
 <body>
 
@@ -23,7 +17,7 @@
 	  <br>
 	  <div class="row">
 		<div class="col text-center">
-	  <a class="btn btn-md btn-info" href="create.php">Add a New Hotel</a>
+	  <a class="btn btn-md btn-info" href="admin/create.php">Add a New Hotel</a>
 	  </div>
 	  </div>
 	  <br>
