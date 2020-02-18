@@ -6,7 +6,6 @@
 
   include_once("header/header.php");
 ?> 
-<body>
 
 <div class="container-fluid text-center">
   <h1><?= $hotel["hotel_name"] ?></h1>
@@ -29,7 +28,5 @@
       </div>
   </div>
 </div>
-
-</body>
-</html>
+<?php include_once("footer/footer.php"); ?> 
 

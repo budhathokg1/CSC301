@@ -10,8 +10,6 @@
     include_once("../header/header.php");
 ?>
 
-<body>
-
     <div class="container-fluid text-center">
         <h1>Add Hotel</h1>
     </div>
@@ -47,6 +45,4 @@
         </div>
     </div>
 
-</body>
-
-</html>
+    <?php include_once("../footer/footer.php"); ?> 

@@ -13,8 +13,6 @@
     include('../header/header.php');
 ?>
 
-<body>
-
     <div class="container-fluid text-center">
         <h1>Edit <?=$hotels['hotel_name'];?></h1>
     </div>
@@ -50,7 +48,4 @@
             </div>
         </div>
     </div>
-
-</body>
-
-</html>
+    <?php include_once("../footer/footer.php"); ?> 
