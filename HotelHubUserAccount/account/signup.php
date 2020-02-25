@@ -7,12 +7,12 @@
        $_POST['pwd'] = trim($_POST['pwd']);
        if(strlen($_POST['pwd'])<8) return '<div class="alert alert-danger" role="alert">Password must be at least 8 characters long!</div>';
        
-       if(!file_exists('users.csv')){
+       if(!file_exists('users.csv.php')){
 			$h=fopen('database.csv','w+');
-			fwrite($h,'');
+			fwrite($h,'<? die(); ?>'."\n");
 			fclose($h);
 	   }
-       $h=fopen('users.csv','r');
+       $h=fopen('users.csv.php','r');
 		while(!feof($h)){
 			$line=fgets($h);
 			if(strstr($line,$_POST['email'])) return '<div class="alert alert-danger" role="alert">Email already is already registered!</div>';
@@ -21,7 +21,7 @@
 
         $_POST['pwd']=password_hash($_POST['pwd'], PASSWORD_DEFAULT);
 
-        $h=fopen('users.csv','a+');
+        $h=fopen('users.csv.php','a+');
 		fwrite($h,implode(';',[$_POST['email'],$_POST['pwd']])."\n");
 		fclose($h);
 
