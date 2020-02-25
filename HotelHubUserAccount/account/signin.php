@@ -1,35 +1,33 @@
 <?php
      include("../functions/functions.php");
    function signin(){
-       $isINDB = false;
        if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) return "The email that you entered is not valid";
        $_POST['email'] = strtolower($_POST['email']);
 
        $_POST['pwd'] = trim($_POST['pwd']);
        if(strlen($_POST['pwd'])<8) return '<div class="alert alert-danger" role="alert">Password must be at least 8 characters long!</div>';
        
-       $h=fopen('users.csv','r');
+       if(!file_exists('users.csv.php')){
+			$h=fopen('database.csv','w+');
+			fwrite($h,'<? die(); ?>'."\n");
+			fclose($h);
+	   }
+
+       $h=fopen('users.csv.php','r');
 		while(!feof($h)){
 			$line=fgets($h);
+            $line=preg_replace('/\n/','',$line);
 			if(strstr($line,$_POST['email'])) {
-                $passArray = explode(';', $line);
-                $pass=$passArray[1];
-                if(password_verify($_POST['pwd'], $pass)){
-                    $isINDB = true;
-                    break;
-				}
-            }
+                $line=explode(';', $line);
+                if(!password_verify($_POST['pwd'], $line[1])) {
+                    return '<div class="alert alert-danger" role="alert">Password does not match!</div>';
+                }
+                else return '<div class="alert alert-success" role="alert">You have sucessfully signed in to your account. Welcome!</div>';
+            }   
+            
 		}
 		fclose($h);
-
-        if($isINDB==true){
-        echo '<div class="alert alert-success" role="alert">You have successfully registered now you can <a href="signin.php">Sign in!</a></div>';
-		return '';
-        }
-        else{
-            echo '<div class="alert alert-danger" role="alert">The credentials entered are not registered, you may need to <a href="signup.php">Sign Up</a></div>';
-		return '';
-		}
+        return '<div class="alert alert-danger" role="alert">The credentials entered are not registered, you may need to <a href="signup.php">Sign Up</a></div>';
    }
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $error=signin();
