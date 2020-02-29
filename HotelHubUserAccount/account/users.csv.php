@@ -4,3 +4,4 @@ ruizj1@nku.edu;$2y$10$2NCBeI82lgygMmwdHHreFeyExUTtJ2UgO6BqlxkEcPfRAEFDlkI5G
 ivonnej2695@gmail.com;$2y$10$XdeZSeP04pW0pmpKIreXLuKpURkFMss3CwqZqK8.4tm74uovRDfHq
 mishcatz1@gmail.com;$2y$10$PiTKmd2RcM0O3wCDp/mmHeITU8jlsLfJGIuSiYy5sgKUHui/ixQ2y
 hello@hello.com;$2y$10$cG1N9cyaEKMEyHL0DYmUEeKPIXN2Ywwq7hWKu/1aHfLqa7weWD9Ue
+mi@mi.com;$2y$10$09ghwHFf2Kq9kK6.hhXyaORX5LPtltCRA5xtZ1bVJHFF.O7wSngFC

@@ -1,23 +1,45 @@
 <?php 
-	include_once("functions/functions.php");
+session_start();
+include_once("functions/functions.php");    
+require_once("account/auth_library.php");
+    
 	
-  $hotels = readJSON("assets/data/hotels.json");
+$hotels = readJSON("assets/data/hotels.json");
 
-  include_once("header/header.php");
+include_once("header/header.php");
 ?> 
-
+<?php
+if(!is_logged('email')){
+    echo'<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="account/signin.php">Sign In</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="account/signup.php">Sign Up</a>
+  </li>
+</ul>';
+}
+else{
+    echo'<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="account/signout.php">Sign Out</a>
+  </li>
+</ul>';
+}
+?>
 <div class="container-fluid text-center">
   <h1>HotelHub</h1>
 </div>
   
 <div class="container cs-body-overlap">
+
   <div class="row overlap">
       <div class="col-md-12">
 	  <br>
 	  <div class="row">
 		<div class="col text-center">
-	  <a class="btn btn-md btn-info" href="admin/create.php">Add a New Hotel</a>
-	  </div>
+        <?php if(is_logged('email')) echo '<a class="btn btn-md btn-info" href="admin/create.php">Add a New Hotel</a>'?>
+	     </div>
 	  </div>
 	  <br>
         <?php

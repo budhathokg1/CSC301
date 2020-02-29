@@ -1,6 +1,7 @@
 <?php 
+    session_start();
 	include_once("functions/functions.php");
-
+    require_once("account/auth_library.php");
 	$id = $_GET["id"];
 	$hotel = readJSON("assets/data/hotels.json", $id);
 
@@ -19,9 +20,12 @@
           <div class="row background-card" style="background-image:url(<?= $hotel["img_url"] ?>)"></div>
             <h5><b>Address:</b> <?= $hotel["address"]; ?> </h5>
             <h5><b>Price per night: $</b> <?= $hotel["price_per_night"]; ?> </h5>
-            <a class="btn btn-md btn-info" href="admin/edit.php?id=<?= $_GET["id"]; ?>">Edit</a>
-            <a class="btn btn-md btn-danger" href="admin/delete.php?id=<?= $_GET["id"]; ?>">Delete</a>
-            <br>
+            <?php if(is_logged('email')){
+            echo '<a class="btn btn-md btn-info" href="admin/edit.php?id=<?= $_GET[\'id\']; ?>">Edit</a>
+            <a class="btn btn-md btn-danger" href="admin/delete.php?id=<?= $_GET[\'id\']; ?>">Delete</a>
+            <br>';
+            }
+            ?>
         </div>
       <div class="col-md-2">
 
