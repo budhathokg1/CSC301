@@ -1,5 +1,6 @@
 <?php 
     include("../functions/functions.php");
+    include("auth_library.php");
    
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $error=signup('users.csv.php');
