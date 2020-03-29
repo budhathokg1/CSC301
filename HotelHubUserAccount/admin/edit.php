@@ -1,16 +1,19 @@
 <?php 
-    include("../functions/functions.php");
+    include("../functions/File.php");
+    include('../layout/Template.php');
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $id=$_POST['id'];
         unset($_POST['id']);
-        modifyJSON("../assets/data/hotels.json", $_POST, $id);
+        File::modifyJSON("../assets/data/hotels.json", $_POST, $id);
         header("Location: ../index.php"); 
         exit();
     }
+
     $id = $_GET['id'];
-    $hotels = readJSON('../assets/data/hotels.json', $id);
-    include('../header/header.php');
+    $hotels = File::readJSON('../assets/data/hotels.json', $id);
+    
+    Template::Header();
 ?>
 
     <div class="container-fluid text-center">
@@ -41,6 +44,7 @@
                     </div>
                     <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
                     <button type="submit" class="btn btn-default">Submit</button>
+                    <a class="btn btn-md btn-primary" href="../details.php?id=<?= $_GET['id']; ?>">Back</a>
                 </form>
             </div>
             <div class="col-md-2">
@@ -48,4 +52,4 @@
             </div>
         </div>
     </div>
-    <?php include_once("../footer/footer.php"); ?> 
+<?php Template::Footer(); ?> 

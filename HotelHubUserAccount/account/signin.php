@@ -1,12 +1,17 @@
 <?php
-    session_start();
-    include("../functions/functions.php");
-    require_once('auth_library.php');
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $error=signin('users.csv.php');
-	    if(isset($error{0})) echo $error;
-    }
-    include_once("../header/header.php");
+  session_start();
+  require_once("../functions/File.php");
+  require_once('auth_library.php');
+  require_once("../layout/Template.php");
+
+  if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $user = new User($_POST['email'], $_POST['pwd']);
+    $error=$user->signin('users.csv.php');
+	  if(isset($error{0})) echo $error;
+  }
+
+  Template::Header();
+
 ?>
 <div class="container-fluid text-center">
     <h1>Sign In</h1>
@@ -44,4 +49,4 @@
     </div>
 </div>
 
-<?php include_once("../footer/footer.php"); ?>
+<?php Template::Footer(); ?>

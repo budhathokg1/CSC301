@@ -1,4 +1,6 @@
 <?php 
 require_once('auth_library.php');
-signout('email');
+$user = new User();
+
+$user->signout('email');
 ?>

@@ -1,13 +1,13 @@
 <?php 
-    include("../functions/functions.php");
-    include("auth_library.php");
+  require_once("../functions/File.php");
+  require_once("../layout/Template.php");
+  if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $user = new User($_POST['email'], $_POST['pwd']);
+    $error= $user->signup('users.csv.php');
+	  if(isset($error{0})) echo $error;
+  }
    
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $error=signup('users.csv.php');
-	    if(isset($error{0})) echo $error;
-    }
-   
-    include_once("../header/header.php");
+  Template::Header();
 ?>
 
 <div class="container-fluid text-center">
@@ -46,4 +46,4 @@
     </div>
 </div>
 
-<?php include_once("../footer/footer.php"); ?>
+<?php Template::Footer(); ?>
