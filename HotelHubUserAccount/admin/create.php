@@ -1,13 +1,14 @@
 <?php 
-    include("../functions/functions.php");
-   
+    require_once("../functions/File.php");
+    require_once("../layout/Template.php");
+
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        modifyJSON("../assets/data/hotels.json", $_POST);
+        File::modifyJSON("../assets/data/hotels.json", $_POST);
         header("Location: ../index.php"); 
         exit();
     }
    
-    include_once("../header/header.php");
+    Template::Header();
 ?>
 
     <div class="container-fluid text-center">
@@ -37,6 +38,7 @@
                         <input required type="number" class="form-control" id="price_per_night" placeholder="Enter price per night" name="price_per_night">
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
+                    <a class="btn btn-md btn-info" href="../index.php">Back To Home</a><br/>  
                 </form>
             </div>
             <div class="col-md-2">
@@ -45,4 +47,4 @@
         </div>
     </div>
 
-    <?php include_once("../footer/footer.php"); ?> 
+<?php Template::Footer(); ?> 

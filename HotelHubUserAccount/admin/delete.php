@@ -1,7 +1,7 @@
 <?php 
-	include_once("../functions/functions.php");
+	require_once("../functions/File.php");
 
-	deleteJSON('../assets/data/hotels.json', $_GET['id']);
+	File::deleteJSON('../assets/data/hotels.json', $_GET['id']);
 
 	header("Location: ../index.php"); 
 ?>

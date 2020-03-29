@@ -1,15 +1,17 @@
 <?php 
 session_start();
-include_once("functions/functions.php");    
+include_once("functions/File.php");    
 require_once("account/auth_library.php");
+include_once("layout/Template.php");
     
 	
-$hotels = readJSON("assets/data/hotels.json");
+$hotels = File::readJSON("assets/data/hotels.json");
+$loginCheck = new User();
 
-include_once("header/header.php");
+Template::Header();
 ?> 
 <?php
-if(!is_logged('email')){
+if(!$loginCheck->is_logged('email')){
     echo'<ul class="nav">
   <li class="nav-item">
     <a class="nav-link active" href="account/signin.php">Sign In</a>
@@ -38,7 +40,7 @@ else{
 	  <br>
 	  <div class="row">
 		<div class="col text-center">
-        <?php if(is_logged('email')) echo '<a class="btn btn-md btn-info" href="admin/create.php">Add a New Hotel</a>'?>
+        <?php if($loginCheck->is_logged('email')) echo '<a class="btn btn-md btn-info" href="admin/create.php">Add a New Hotel</a>'?>
 	     </div>
 	  </div>
 	  <br>
@@ -67,5 +69,6 @@ else{
       </div>
   </div>
 </div>
-
-<?php include_once("footer/footer.php"); ?> 
+<?php
+Template::Footer();
+?>

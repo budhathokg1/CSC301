@@ -5,4 +5,3 @@ ivonnej2695@gmail.com;$2y$10$XdeZSeP04pW0pmpKIreXLuKpURkFMss3CwqZqK8.4tm74uovRDf
 mishcatz1@gmail.com;$2y$10$PiTKmd2RcM0O3wCDp/mmHeITU8jlsLfJGIuSiYy5sgKUHui/ixQ2y
 hello@hello.com;$2y$10$cG1N9cyaEKMEyHL0DYmUEeKPIXN2Ywwq7hWKu/1aHfLqa7weWD9Ue
 mi@mi.com;$2y$10$09ghwHFf2Kq9kK6.hhXyaORX5LPtltCRA5xtZ1bVJHFF.O7wSngFC
-ganesh.budhathoki@nku.edu;$2y$10$qC/8x..3v75KYDaptl/a8OWCSFvWqq7zIsjqjxOPTttCXXyFkeS6u
