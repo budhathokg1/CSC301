@@ -1,6 +1,7 @@
 <?php 
   require_once("../functions/File.php");
   require_once("../layout/Template.php");
+  require_once('auth_library.php');
   if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $user = new User($_POST['email'], $_POST['pwd']);
     $error= $user->signup('users.csv.php');
