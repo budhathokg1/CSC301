@@ -40,7 +40,7 @@ else{
       <div class="col-md-12">
 	  <br>
 	  <div class="row">
-    <?php if($loginCheck->is_logged('email') && $loginCheck->isAdmin('email')) echo'
+    <?php if($loginCheck->is_logged('email') && ($loginCheck->isAdmin('email') || $loginCheck->is_super_admin('email'))) echo'
     <div class="list-group">
       <a href="admin/create.php" class="list-group-item list-group-item-action">Add a New Hotel</a>
     </div>'?>
@@ -56,7 +56,7 @@ else{
                     <h3><?= $value["hotelName"]; ?></h3>
                     <h5>Address: <?php print($value["streetName"]." ".$value["city"].", ".$value["state"]." ".$value["zipCode"]); ?></h5>
                     <a class="btn btn-md btn-primary" href="details.php?id=<?= $value["hotelID"]; ?>">Available Rooms</a>
-                    <?php if($loginCheck->is_logged('email') && $loginCheck->isAdmin('email')){ ?>
+                    <?php if($loginCheck->is_logged('email') && ($loginCheck->isAdmin('email') || $loginCheck->is_super_admin('email'))){ ?>
                     <a class="btn btn-md btn-info" href="admin/edit.php?id=<?= $value["hotelID"]; ?>">Edit</a>
                     <a class="btn btn-md btn-danger" href="admin/delete.php?id=<?= $value["hotelID"]; ?>">Delete</a>
                     <?php }?>
