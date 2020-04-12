@@ -1,8 +1,16 @@
 <?php
+    session_start();
     require_once('../functions/UserManager.php');
     require_once('../layout/Template.php');
-
+    require_once('../account/auth_library.php');
+    
+    
+    $loginCheck = new User();  
     $users=UserManager::getUsers();
+    if(!($loginCheck->is_logged("email") && $loginCheck->is_super_admin("email"))){
+        header("Location: ../index.php"); 
+        exit();
+    }
 ?> 
 <!DOCTYPE html>
         <html lang="en">
@@ -16,11 +24,17 @@
         <link rel="stylesheet" href="../assets/css/style.css">
         </head>
         <body>
-            
+
+  <ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.php">Back to Home</a>
+  </li>
+</ul>
 <div class="container-fluid text-center">
   <h1>User Manager</h1>
 </div>
 <div class="container cs-body-overlap">
+
 
   <div class="row overlap">
       <div class="col-md-12">

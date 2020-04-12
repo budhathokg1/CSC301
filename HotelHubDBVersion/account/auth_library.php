@@ -12,6 +12,67 @@ class User{
         $this->lastName = $lastName;
     }
 
+    public function isAdmin($field_name){
+        $settings=[
+            'host'=>'localhost',
+            'db'=>'dbhotelhub',
+            'user'=>'root',
+            'pass'=>''
+        ];
+        
+        $opt=[
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ];
+        
+        $pdo= new PDO('mysql:host='.$settings['host'].';dbname='.$settings['db'].
+        ';charset=utf8mb4', $settings['user'], $settings['pass'], $opt);
+
+        $user=$_SESSION[$field_name];
+        $query='SELECT userType FROM user WHERE email=?';
+        $q=$pdo->prepare($query);
+        $q->execute([$user]);
+        $result=$q->fetch();
+
+        if(strcmp('admin', $result['userType']) == 0){
+            return true;
+        }
+        else
+            return false;
+    }
+
+
+    public function is_super_admin($field_name){
+        $settings=[
+            'host'=>'localhost',
+            'db'=>'dbhotelhub',
+            'user'=>'root',
+            'pass'=>''
+        ];
+        
+        $opt=[
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ];
+        
+        $pdo= new PDO('mysql:host='.$settings['host'].';dbname='.$settings['db'].
+        ';charset=utf8mb4', $settings['user'], $settings['pass'], $opt);
+
+        $user=$_SESSION[$field_name];
+        $query='SELECT userType FROM user WHERE email=?';
+        $q=$pdo->prepare($query);
+        $q->execute([$user]);
+        $result=$q->fetch();
+
+        if(strcmp('superadmin', $result['userType']) == 0){
+            return true;
+        }
+        else
+            return false;
+    }
+    
     public function is_logged($field_name){
         return isset($_SESSION[$field_name]{0});
     }
@@ -77,7 +138,6 @@ class User{
         $this->email = strtolower($this->email);
 
         $this->pwd = trim($this->pwd);
-        if(strlen($this->pwd)<8) return '<div class="alert alert-danger" role="alert">Password must be at least 8 characters long!</div>';
         
         $query='SELECT password FROM user WHERE email=?';
         $q=$pdo->prepare($query);
@@ -104,35 +164,6 @@ class User{
         header('location: ../index.php');
     }
 
-    public function isAdmin($field_name){
-        $settings=[
-            'host'=>'localhost',
-            'db'=>'dbhotelhub',
-            'user'=>'root',
-            'pass'=>''
-        ];
-        
-        $opt=[
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES => false,
-        ];
-        
-        $pdo= new PDO('mysql:host='.$settings['host'].';dbname='.$settings['db'].
-        ';charset=utf8mb4', $settings['user'], $settings['pass'], $opt);
-
-        $user=$_SESSION[$field_name];
-        $query='SELECT userType FROM user WHERE email=?';
-        $q=$pdo->prepare($query);
-        $q->execute([$user]);
-        $result=$q->fetch();
-
-        if(strcmp('admin', $result['userType']) == 0){
-            return true;
-        }
-        else
-            return false;
-    }
-
+    
 }
 ?>

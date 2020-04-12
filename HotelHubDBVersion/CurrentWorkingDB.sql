@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2020 at 10:54 PM
+-- Generation Time: Apr 10, 2020 at 06:04 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -109,9 +109,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userID`, `firstName`, `lastName`, `email`, `password`, `userType`) VALUES
-(1, 'Juan', 'Ruiz', 'juanr26690@gmail.com', '$2y$10$952aZLtrDkBTbjUBdjcpVeIqRMQsNWqi2THackhjnDMBq.pCx3Ggq', 'admin'),
-(2, 'admin', 'admin', 'user@admin.com', '$2y$10$2M61JYOv7FF2Ne.4Fmiy3uFkmSrrtdYcMfGOoko/xTsaI2UgKVdwK', 'admin'),
-(3, 'root', 'root', 'root@root.com', '$2y$10$tbSeK/dUwj3hsjYdfzrCw.DALL9pT9hm5FAvGrHt45UFZ7kx9tnk6', 'root'),
+(1, 'Juan', 'Ruiz', 'juanr26690@gmail.com', '$2y$10$952aZLtrDkBTbjUBdjcpVeIqRMQsNWqi2THackhjnDMBq.pCx3Ggq', 'superadmin'),
+(2, 'admin', 'admin', 'admin@admin.com', '$2y$10$2M61JYOv7FF2Ne.4Fmiy3uFkmSrrtdYcMfGOoko/xTsaI2UgKVdwK', 'admin'),
+(3, 'root', 'root', 'root@root.com', '$2y$10$tbSeK/dUwj3hsjYdfzrCw.DALL9pT9hm5FAvGrHt45UFZ7kx9tnk6', 'superadmin'),
 (4, 'Bob', 'Dylan', 'bob@gmail.com', '$2y$10$WQS7w9EhLq4oimuQ/zP.meXJvqUAEYayET5.n97yc1fX4sVmXk912', 'user'),
 (5, 'Juan', 'Luiz', 'luiz@zoomtown.com', '$2y$10$r9H8YkJefzjdJdnVE.GBhuHEfDqGmL9HO/RNveasVn6iwCZ1OQ2rK', 'user');
 

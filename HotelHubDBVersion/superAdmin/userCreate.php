@@ -1,21 +1,30 @@
 <?php 
+    session_start();
     require_once("../functions/File.php");
     require_once("../functions/HotelDB.php");
     require_once("../functions/UserManager.php");
     require_once("../layout/Template.php");
+    require_once('../account/auth_library.php');
 
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $error=UserManager::createUser($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['password'], $_POST['userType']);
-        if(isset($error{0})) echo $error;
-        else{
-            header("Location: UserConfig.php"); 
-            exit();
+    $loginCheck = new User();
+
+    if(!($loginCheck->is_logged("email") && $loginCheck->is_super_admin("email"))){
+        header("Location: ../index.php"); 
+        exit();
+    }
+    else{
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $error=UserManager::createUser($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['password'], $_POST['userType']);
+            if(isset($error{0})) echo $error;
+            else{
+                header("Location: UserConfig.php"); 
+                exit();
+            }
         }
     }
    
     Template::Header();
 ?>
-
     <div class="container-fluid text-center">
         <h1>Add New User</h1>
     </div>
