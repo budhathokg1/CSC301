@@ -82,6 +82,29 @@ class UserManager{
 
         return $q->fetch();
     }
+    public static function getUserFromEmail($email){
+        $settings=[
+            'host'=>'localhost',
+            'db'=>'dbhotelhub',
+            'user'=>'root',
+            'pass'=>''
+        ];
+        
+        $opt=[
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ];
+        
+        $pdo= new PDO('mysql:host='.$settings['host'].';dbname='.$settings['db'].
+        ';charset=utf8mb4', $settings['user'], $settings['pass'], $opt);
+
+        $query='SELECT firstName, lastName FROM user WHERE email=?';
+        $q=$pdo->prepare($query);
+        $q->execute([$email]);
+
+        return $q->fetch();
+    }
     public static function modifyUser($id, $firstName, $lastName, $email, $password, $userType){
         $settings=[
             'host'=>'localhost',

@@ -116,6 +116,22 @@ INSERT INTO `user` (`userID`, `firstName`, `lastName`, `email`, `password`, `use
 (5, 'Juan', 'Luiz', 'luiz@zoomtown.com', '$2y$10$r9H8YkJefzjdJdnVE.GBhuHEfDqGmL9HO/RNveasVn6iwCZ1OQ2rK', 'user');
 
 --
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) NOT NULL,
+  `hotelID` int(10) NOT NULL,
+  `comment` varchar(255) NOT NULL,
+  `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+
+--
 -- Indexes for dumped tables
 --
 
