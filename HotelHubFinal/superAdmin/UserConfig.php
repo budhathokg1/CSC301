@@ -1,0 +1,70 @@
+<?php
+    session_start();
+    require_once('../_settings.php');
+    require_once(APP_ROUTE.'/functions/UserManager.php');
+    require_once(APP_ROUTE.'/layout/Template.php');
+    require_once(APP_ROUTE.'/account/auth_library.php');
+    
+    
+    $loginCheck = new User();  
+    $users=UserManager::getUsers();
+    if(!($loginCheck->is_logged("email") && $loginCheck->is_super_admin("email"))){
+        header("Location: ../index.php"); 
+        exit();
+    }
+?> 
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+        <title>User Manager</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="icon" href="https://www.pngkit.com/png/detail/941-9414309_hotel-reservations-search-engine-optimization-icon.png" type="image/icon type">
+        </head>
+        <body>
+
+  <ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.php">Back to Home</a>
+  </li>
+</ul>
+<div class="container-fluid text-center">
+  <h1>User Manager</h1>
+</div>
+<div class="container cs-body-overlap">
+
+
+  <div class="row overlap">
+      <div class="col-md-12">
+	  <br>
+	  <div class="row">
+      <div class="list-group">
+      <a href="userCreate.php" class="list-group-item list-group-item-action">Add a New User</a>
+    </div>
+	  <br>
+        <?php
+          foreach($users as $name=>$value) {
+        ?>
+          <div class="card w-50 text-center">
+  <div class="card-body">
+    <h3 class="card-title"><?php print($value['firstName']." ".$value['lastName'])?></h5>
+    <p class="card-text">E-Mail: <?=$value['email']?></p>
+    <p class="card-text">Password: <?=$value['password']?></p>
+    <p class="card-text">User Type: <?=$value['userType']?></p>
+    <a href="userModify.php?id=<?= $value['userID']; ?>" class="btn btn-primary">Edit</a>
+  </div>
+</div>
+<br>
+            <?php
+          }
+        ?>
+
+      </div>
+  </div>
+</div>
+</body>
+</html>
